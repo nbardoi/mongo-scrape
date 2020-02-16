@@ -31,16 +31,16 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-scraper"
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
-// require("./routes/Routes.js")(app);
-const index = require('./routes/index'),
-      articles = require('./routes/articles'),
-      notes = require('./routes/notes'),
-      scrape = require('./routes/scrape');
+require("./routes/Routes.js")(app);
+// const index = require('./routes/index'),
+//       articles = require('./routes/articles'),
+//       notes = require('./routes/notes'),
+//       scrape = require('./routes/scrape');
 
-app.use('/', index);
-app.use('/articles', articles);
-app.use('/notes', notes);
-app.use('/scrape', scrape);
+// app.use('/', index);
+// app.use('/articles', articles);
+// app.use('/notes', notes);
+// app.use('/scrape', scrape);
 
 // Start the server
 app.listen(PORT, function() {
