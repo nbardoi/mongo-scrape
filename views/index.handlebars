@@ -1,0 +1,42 @@
+<div class="col-md-12">
+  {{#if articles}}
+    {{#each articles}}
+            {{#unless saved}}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>{{this.title}}</h4>
+                        <a href="{{this.link}}" target="_blank"></a>
+                    </div>
+                    <div class="panel-body">
+                        <p> {{this.summary}}</p>
+                        <br><br>
+                        <button class="storyButton" id="saveArticle" data-id="{{_id}}">Save Article</button>                    </div>
+                </div>
+            {{/unless}}
+        {{/each}}
+</div>
+
+
+ {{!-- Modal for alerting number of scraped articles --}}
+<div id="alertModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <h2>You have scraped <span id="numArticles"></span> new articles</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+      {{else}}
+        <div class="panel panel-default">
+            <div class="panel-body" id="loader">
+                <h4>Uh Oh. Looks like we don't have any new articles.</h4>
+            </div>
+        </div>
+      {{/if}}
+  
+</div>
